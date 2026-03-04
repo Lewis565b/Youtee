@@ -1,6 +1,6 @@
-
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -20,7 +20,7 @@
             background: white;
             padding: 2rem;
             border-radius: 12px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
             width: 100%;
             max-width: 600px;
             text-align: center;
@@ -64,7 +64,7 @@
             aspect-ratio: 16 / 9;
             border-radius: 8px;
             border: none;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
         }
 
         footer {
@@ -72,10 +72,11 @@
             top: 0;
             right: 0;
             font-size: 8;
-            color:#f0f2f5;
+            color: #f0f2f5;
         }
     </style>
 </head>
+
 <body>
 
     <div class="container">
@@ -84,7 +85,7 @@
         <br>
         <button onclick="embedVideo()">Search maths</button>
 
-        
+
     </div>
     <div id="videoContainer">
     </div>
@@ -101,24 +102,32 @@
         function embedVideo() {
             const url = document.getElementById('urlInput').value;
             const container = document.getElementById('videoContainer');
-            
+
             const regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|\&v=)([^#\&\?]*).*/;
             const match = url.match(regExp);
 
             let videoId = (match && match[2].length === 11) ? match[2] : null;
-            if (!videoId){
+            if (!videoId) {
                 videoId = url
             }
             if (videoId) {
                 document.getElementById("Title").innerHTML = "Heyo"
                 document.getElementById("Title").innerHTML = ""
                 container.innerHTML = `
-                    <iframe width="1120" height="630" src="https://www.youtube.com/embed/${videoId}?si=537" title="Player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>`;
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        <iframe width="1120" height="630" src="https://www.youtube.com/embed/${videoId}?si=537" title="Player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>`;
             } else {
                 alert("Something went wrong!");
             }
         }
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Alt' || e.key === 'AltGraph') {   // AltGraph is right Alt on some keyboards
+                window.location.href = "https://www.google.com";
+            } else {
+
+            }
+        })
     </script>
 
 </body>
+
 </html>
